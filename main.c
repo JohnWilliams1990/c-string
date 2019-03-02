@@ -4,30 +4,19 @@
 //  Program: main.c
 
 #include<stdio.h>
-#include <ctype.h>
+#include <string.h>
+#define _GNU_SOURCE         /* See feature_test_macros(7) */
+
+// Program demonstaes using two string to do string comparisons. 
+// this will take two string and see if the first is a substring of the second
 
 int main(int argc, char *argv[])
 {
-
-  char item[30] = "this is Sparta!";
-  if ( argc > 1) {  
-  char test[10] = "          ";
-    printf("%s\n", item);
-    printf("Item being tested is: %s\n", argv[1]);
-    printf("\n\n%s\n\n", "~~~~~~~~~~~~~~~~~~~");
-
-  // strncpy(test, argv[1], 10);
-
-  for(int i = 0; i < 10; i++){
-    printf("\n%s", "~~~~~~~~~~~~~~~~~~~");
-    test[i] = tolower(argv[i]);
-     printf("%c\n", test[i]);
-  }
-
-    printf("%s\n",test);
-    //if(strstr(item, tolower(test) != NULL)) {
-    //  printf("\n\n%s\n\n", "yep");
-    //}
+  if ( argc > 2) {  
+    // get string size
+    if((int)strcasestr(argv[1], argv[2]) != NULL) {
+      printf("the string \"%s\" contains the substring \"%s\"\n", argv[1], argv[2]);
+    } 
   }
   return 0; 
 }
